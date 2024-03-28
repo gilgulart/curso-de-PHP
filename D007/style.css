@@ -1,0 +1,55 @@
+* {
+  font-family: "Merriweather";
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: coral;
+}
+
+main {
+  background-color: #eef;
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#payment {
+  width: 100%;
+  margin-bottom: 30px;
+  height: 35px;
+  padding: 5px;
+  margin-top: 30px;
+  outline: none;
+  border-radius: 20px;
+  background-color: rgb(246, 225, 186);
+  color: black;
+}
+
+button {
+  background-color: black;
+  color: #eef;
+  height: 35px;
+  outline: none;
+  border-radius: 20px;
+  width: 100px;
+  cursor: pointer;
+  margin-left: 10px;
+}
