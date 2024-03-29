@@ -26,12 +26,11 @@
 $clientValue = (int) $_GET['payment'] ??1 ;
 $formatValue = number_format($clientValue,2,',','.') ;
 $fixedValue = 1412 ;
-$fractionValue = (int) $clientValue / $fixedValue ;
-$result1 = (int) number_format($fractionValue,1) ;
+$fractionValue = intdiv($clientValue, $fixedValue) ;
 $restValue = (int) $clientValue % $fixedValue ;
 $result2 = number_format($restValue,2,',','.');
-echo "Seu salário é de R\$" . $formatValue . " <p> Que corresponde a " . $result1 . " salários" . " + R\$" . $result2 ;
-echo "<p> O salário mínimo atual é de R\$" . $fixedValue;
+echo "Seu salário é de<strong> R\$" . $formatValue . "</strong> <p> Que corresponde a <strong>" . $fractionValue . " salários" . " +  R\$" . $result2 ;
+echo "</strong><p> O salário mínimo atual é de<strong> R\$" . $fixedValue;
 ?>
         </section>
     </main>

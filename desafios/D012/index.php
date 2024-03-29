@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <?php 
+    $value = $_GET['time'] ??0 ;
+    ?>
     <main>
         <h1>Calculadora de tempo</h1>
         <form action="<?=$_SERVER['PHP_SELF'] ?>" method="get">
@@ -22,23 +25,35 @@
     <section>
         <h2>Totalizando tudo</h2>
         <?php 
-            $seconds = (float) $_GET['time'] ;
-            $fmtsecond = number_format($seconds,2,'.','.') ;
-            $hour = $seconds / 3600 ;
-            $hourfmt = (int)$hour ; 
-            $minute = $seconds / 60 ;
-            $minutefmt = (int) $minute ;
-            $day = $seconds / 864000 ;
-            $dayfmt = (int) $day ;
-            $week = $seconds / 604800 ;
-            $weekfmt = (int) $week ;
-       echo "<p>Analisando o valor que você digitou <strong>" . $fmtsecond . "s</strong> equivalem a um total de:</p>";
-       echo "<p>" . $weekfmt . "<strong> semanas </p></strong>";
-       echo "<p>" . $dayfmt . "<strong> dias </p></strong>" ;
-       echo "<p>" . $hourfmt . "<strong> horas </p></strong>" ;
-       echo "<p>" . $minutefmt . "<strong> minutos </p></strong>" ;
-            
+            $rest = $value ;
+            //Total de semanas
+            $week = intdiv($rest,604800) ;
+            $rest = $rest % 604_800 ;
+            //Total de dias
+            $day = intdiv($rest,86_400) ;
+            $rest = $rest % 86_400 ;
+            //Total de horas
+            $hour = intdiv($rest,3_600) ;
+            $rest = $rest % 3_600 ;
+            //Total de minutos
+            $minute = intdiv($rest,60) ;
+            $rest = $rest % 60 ;
+            //Total de segundos
+            $second = $rest ; 
 ?>
+
+        <p>Analisando o valor que você digitou <strong> <?=number_format($value,2,',')?>s</strong> equivalem a um
+            total
+            de:</p>
+
+        <ul>
+            <li><?= $week ?><strong> semanas </strong></li>
+            <li><?= $day ?><strong> dias </strong></li>
+            <li><?= $hour ?><strong> horas </strong></li>
+            <li><?= $minute ?><strong> minutos </strong></li>
+            <li><?= $second ?><strong> segundos </strong></li>
+        </ul>
+
     </section>
 
 </body>

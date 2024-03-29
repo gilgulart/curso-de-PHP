@@ -31,13 +31,11 @@
         <?php 
         $number = $_GET['number']??1;
         $fmtNumber = (int)$number  ;
-        $root = pow($fmtNumber, 1/2) ;
-        $rootfmt = number_format($root,3,',');
+        $root = sqrt($fmtNumber) ;
         $cubic = pow($fmtNumber, 1/3) ;
-        $cubicfmt = number_format($cubic,3,',');
         echo "<strong><p>Analisando o número " . $fmtNumber . ",</strong> temos:</p>" ;
-        echo "<p> A raiz quadrada é <strong>" . $rootfmt . "</strong></p>" ;
-        echo "<p> A raiz cúbica é <strong>" . $cubicfmt . "</strong></p>" ;
+        echo "<ul><li><p> A raiz quadrada é <strong>" . number_format($root,3,',') . "</strong></p></li></ul>" ;
+        echo "<ul><li><p> A raiz cúbica é <strong>" . number_format($cubic,3,',') . "</strong></p></li></ul>" ;
         ?>
     </section>
 </body>
